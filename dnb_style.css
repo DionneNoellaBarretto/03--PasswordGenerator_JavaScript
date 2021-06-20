@@ -1,0 +1,43 @@
+                    /* Universal Selectors */
+                    
+                    * {
+                        margin: 100;
+                        padding: 100;
+                    }
+                    /* Element Selectors */
+                    
+                    body {
+                        /* link to external font sheet  */
+                        font-family: 'Lacquer', 'Sofia', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                        display: grid;
+                        place-items: center;
+                        height: 100vh;
+                    }
+                    /* Class Selectors */
+                    
+                    .password-widget {
+                        padding: 15px;
+                        box-shadow: 3px, 4px, 8px rgba(0, 0, 0, 1);
+                        border-radius: 8px;
+                    }
+                    
+                    .password-widget textarea {
+                        width: 100%;
+                        padding: 10px 0px;
+                        border: 1px dashed #bbbb;
+                        border-radius: 5px;
+                        margin: 10px 0px;
+                    }
+                    
+                    .password-widget button {
+                        background-color: rgb(241, 181, 243);
+                        color: #fff;
+                        padding: 25px, 20px;
+                        border: none;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        position: absolute;
+                        top: 60%;
+                        left: 35%;
+                        height: 3vh;
+                    }

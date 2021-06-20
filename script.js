@@ -55,26 +55,29 @@ function generatePassword() {
         }
         // return selectedOptions;
 
-    //reiterates user's selection prior to displaying th randomly generated password
-    // if (selectedlowerCase === true || selectedupperCase === true || selectedspecilCharacter === true || selectednumbers === true) {
-    //     alert(`Your ${passwordLength} character long password will contain ${JSON.stringify(selectedOptions, null, 2)} `);
-    // }
+    // reiterates user 's selection prior to displaying th randomly generated password
+    if (selectedlowerCase === true || selectedupperCase === true || selectedspecilCharacter === true || selectednumbers === true) {
+        alert(`Your ${passwordLength} character long password will contain ${JSON.stringify(selectedOptions, null, 2)} `);
+    }
 
     if (selectedupperCase) {
         console.log(upperCase.join(","));
         for (let i = 0; i < (Math.floor(passwordLength / 4)); i++) {
             let number = Math.floor(Math.random() * upperCase.length);
-            console.log(1, i, number, upperCase.join(",").substring(number));
+            // console.log(1, i, number, upperCase.join(",").substring(number));
             passwordValueu += upperCase.join("").substring(number, number + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
         }
     }
-    // if (selectedlowerCase) {
-    //     console.log(lowerCase.join(","));
-    //     for (let j = 0; j < passwordLength; j++) {
-    //         let number = Math.floor(Math.random() * lowerCase.length);
-    //         passwordValuel += lowerCase.join(",").substring(number, number + 1) // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
-    //     }
-    //     console.log(passwordValuel);
+
+    if (selectedlowerCase) {
+        console.log(lowerCase.join(","));
+        for (let i = 0; i < (Math.floor(passwordLength / 4)); i++) {
+            let number = Math.floor(Math.random() * lowerCase.length);
+            //   console.log(1, i, number, lowerCase.join(",").substring(number));
+            passwordValuel += lowerCase.join("").substring(number, number + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
+        }
+    }
+
     // }
     // if (selectednumbers) {
     //     console.log(numbers.join(","));

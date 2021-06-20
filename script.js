@@ -71,10 +71,19 @@ function generatePassword() {
 
     if (selectedlowerCase) {
         console.log(lowerCase.join(","));
-        for (let i = 0; i < (Math.floor(passwordLength / 4)); i++) {
+        for (let j = 0; j < (Math.floor(passwordLength / 4)); j++) {
             let number = Math.floor(Math.random() * lowerCase.length);
             //   console.log(1, i, number, lowerCase.join(",").substring(number));
             passwordValuel += lowerCase.join("").substring(number, number + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
+        }
+    }
+
+    if (selectednumbers) {
+        console.log(numbers.join(","));
+        for (let k = 0; k < (Math.floor(passwordLength / 4)); k++) {
+            let number = Math.floor(Math.random() * numbers.length);
+            //   console.log(1, i, number, numbers.join(",").substring(number));
+            passwordValuen += numbers.join("").substring(number, number + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
         }
     }
 
@@ -106,7 +115,7 @@ function generatePassword() {
 // Write password to the #password input
 function writePassword() {
     var password = generatePassword();
-    // var password = 0;
+    var password = 0;
 
     var passwordText = document.querySelector("#password");
 

@@ -127,8 +127,7 @@ function generatePassword() {
     randomCharacters += appendu + appendl + appends + appendn;
     console.log(randomCharacters, randomCharacters.length);
 
-
-    //Shuffle the randomCharacters into a randomPassword
+    //Shuffle the randomCharacters into an actual randomPassword
     var randomPassword = randomCharacters.split("");
     n = randomCharacters.length;
     // console.log(n);
@@ -139,9 +138,6 @@ function generatePassword() {
         randomPassword[y] = tmp;
         // console.log(x, y, tmp)
     }
-
-
-
 
     //console.log(randomPassword);
     alert(`Your ${passwordLength} character long password is ${randomPassword.join("")}`);

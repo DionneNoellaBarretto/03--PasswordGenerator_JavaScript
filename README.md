@@ -36,7 +36,12 @@ Another Work in Progress Solution: 🗂️ [Github Repository]() | 📄[Github P
 ## Mock-Up
 
 The following image shows the web application's appearance and functionality:
-![The Password Generator application displays a red button to "Generate Password".](./03-javascript-homework-demo.png)
+<img src="./Images/03-javascript-homework-demo.png">
+
+Following are Desktop, Tablet and Mobile Views: 
+<img src="./Images\DesktopView.png">
+<img src="./Images\TabletView.png">
+<img src="./Images\MobileView.png">
 
 
 ## Grading Requirements

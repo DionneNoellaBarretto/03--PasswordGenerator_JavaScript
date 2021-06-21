@@ -144,9 +144,9 @@ function generatePassword() {
     //returns a randompassword  without the ",'s"
     return randomPassword.join("");
 
-
 }
 
+//this function is called by generatePassword to churn through the 4 choices chosen by the user randomNumber of times
 function generateValues(passLength, counter, inputString) {
     let outputString = "";
     for (let i = 0; i < (Math.floor(passLength / counter)); i++) {
@@ -155,6 +155,7 @@ function generateValues(passLength, counter, inputString) {
     }
     return outputString;
 }
+
 
 // Write password to the #password input
 function writePassword() {

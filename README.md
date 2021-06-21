@@ -53,6 +53,7 @@ Satisfies all of the preceding acceptance criteria plus the following:
 ```
 ✅The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
 ```
+<img src="./Images\No Issues, Errors.png">
 
 ### Deployment: 32%
 ```

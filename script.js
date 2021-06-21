@@ -105,7 +105,7 @@ function generatePassword() {
     }
     // concatenating all the equally divided passvalues
     var randomCharacters = passwordValueu + passwordValuel + passwordValuen + passwordValues;
-    console.log(randomCharacters, randomCharacters.length);
+    //console.log(randomCharacters, randomCharacters.length);
 
     //filling up the password length with characters user has chosen
     diff = (passwordLength - randomCharacters.length);
@@ -125,7 +125,7 @@ function generatePassword() {
         //  console.log(appends);
     }
     randomCharacters += appendu + appendl + appends + appendn;
-    console.log(randomCharacters, randomCharacters.length);
+    //console.log(randomCharacters, randomCharacters.length);
 
     //Shuffle the randomCharacters into an actual randomPassword
     var randomPassword = randomCharacters.split("");

@@ -29,7 +29,7 @@ GIVEN I need a new, secure password
 # DNB's SOLUTION: 
 UNC Boot Camp Submission: 🗂️ [Github Repository](https://github.com/DionneNoellaBarretto/03--PasswordGenerator_JavaScript) | 📄[Github Page](https://dionnenoellabarretto.github.io/03--PasswordGenerator_JavaScript/)
 
-Another Work in Progress Solution: 🗂️ [Github Repository]() | 📄[Github Page]()
+Another Work in Progress Solution (Practice Attempt): 🗂️ [Github Repository](https://github.com/DionneNoellaBarretto/Week3Practice) | 📄[Github Page](https://dionnenoellabarretto.github.io/Week3Practice/)
 
 --------------------------------
 

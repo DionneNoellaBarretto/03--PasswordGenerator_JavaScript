@@ -35,12 +35,19 @@ function generatePassword() {
 
     // confirms length of password 
     else {
-        alert(`Please proceed with selecting what comprises your ${passwordLength} character long password! Atleast one selection must be considered to create a randomly generated password.`)
+        alert(`Please proceed with selecting what comprises your ${passwordLength} character long password! `)
     }
+
+    //subsequent prompts for including specialcharacters, uppercase and lowercase characters
+    // selectedupperCase = confirm("Click OK if you would like to include upperCase characters (A, B,C, ....) in your randomly generated password");
+    // selectedlowerCase = confirm("Click OK if you would like to include lowerCase characters (a,b,c, ...) in your randomly generated password");
+    // selectednumbers = confirm("Click OK if you would like to include numbers (0 -9) in your randomly generated password");
+    // selectedspecialCharacter = confirm("Click OK if you would like to include special characters (@, !, ~, ...) in your randomly generated password");
 
     //console.log(selectedupperCase, selectedlowerCase, selectednumbers, selectedspecialCharacter)
     //Validating for atleast 1 prompt being okay'ed
     while (selectedlowerCase === false && selectedupperCase === false && selectedspecialCharacter === false && selectednumbers === false) {
+        alert("Atleast one selection must be considered to create a randomly generated password");
         selectedupperCase = confirm("Click OK if you would like to include upperCase characters (A, B,C, ....) in your randomly generated password");
         selectedlowerCase = confirm("Click OK if you would like to include lowerCase characters (a,b,c, ...) in your randomly generated password");
         selectednumbers = confirm("Click OK if you would like to include numbers (0 -9) in your randomly generated password");
@@ -49,11 +56,12 @@ function generatePassword() {
 
     //storing all the selected values in a variable for subsequent use
     var selectedOptions = {
-        upperCase: selectedupperCase,
-        lowerCase: selectedlowerCase,
-        numbers: selectednumbers,
-        specialCharacters: selectedspecialCharacter
-    }
+            upperCase: selectedupperCase,
+            lowerCase: selectedlowerCase,
+            numbers: selectednumbers,
+            specialCharacters: selectedspecialCharacter
+        }
+        // return selectedOptions;
 
     // reiterates user's selection prior to displaying th randomly generated password
     if (selectedlowerCase === true || selectedupperCase === true || selectedspecialCharacter === true || selectednumbers === true) {
@@ -76,35 +84,78 @@ function generatePassword() {
         count = count + 1;
     }
 
+    // console.log(count);
+
     // if the user opted for upper case characters then choose a few character from uppercase string
     // this condition for if implies true hence skipping '=== true' part
     if (selectedupperCase) {
-        passwordValueu = generateValues(passwordLength, count, upperCase);
+        // for (let i = 0; i < (Math.floor(passwordLength / count)); i++) {
+        //     randomNumber = Math.floor(Math.random() * upperCase.length);
+        //     // console.log(1, i, randomNumber, upperCase.join(",").substring(randomNumber, randomNumber+1));
+        //     passwordValueu += upperCase.join("").substring(randomNumber, randomNumber + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
+        // }
+        passwordValueu = generateValues(passwordLength, count, upperCase)
         console.log(passwordValueu);
     }
 
     // if the user opted for lower case characters then choose a few character from lowercase string
     // this condition for if implies true hence skipping '=== true' part
     if (selectedlowerCase) {
-        passwordValuel = generateValues(passwordLength, count, lowerCase);
+        // for (let j = 0; j < (Math.floor(passwordLength / count)); j++) {
+        //     randomNumber = Math.floor(Math.random() * lowerCase.length);
+        //     //   console.log(1, j, randomNumber, lowerCase.join(",").substring(randomNumber, randomNumber +1));
+        //     passwordValuel += lowerCase.join("").substring(randomNumber, randomNumber + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
+        // }
+        passwordValuel = generateValues(passwordLength, count, lowerCase)
         console.log(passwordValuel);
     }
 
     // if the user opted for numbers then choose a few numbers from numbers variable
     // this condition for if implies true but here's an example where an explicit '=== true' part is defined
-    if (selectednumbers === true) {
+    if (selectednumbers === true) { //} && ((selectedspecialCharacter === false || selectedlowerCase === false || selectedupperCase == false))) {
+        // for (let k = 0; k < (Math.floor(passwordLength / count)); k++) {
+        //     randomNumber = Math.floor(Math.random() * numbers.length);
+        //     //   console.log(1, k, randomNnumber, numbers.join(",").substring(randomNumber, randomNumber +1));
+        //     passwordValuen += numbers.join("").substring(randomNumber, randomNumber + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
+        // }
         passwordValuen = generateValues(passwordLength, count, numbers)
         console.log(passwordValuen);
     }
 
+
     // if the user opted for numbers then choose a few numbers from numbers variable
-    if (selectedspecialCharacter) {
+    if (selectedspecialCharacter) { //} && ((selectedspecialCharacter === false || selectedlowerCase === false || selectedupperCase == false))) {
+        // for (let l = 0; l < (Math.floor(passwordLength / count)); l++) {
+        //     randomNumber = Math.floor(Math.random() * specialCharacters.length);
+        //     //   console.log(1, l, randomNnumber, specialCharacters.join(",").substring(randomNumber, randomNumber +1));
+        //     passwordValues += specialCharacters.join("").substring(randomNumber, randomNumber + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
+        // }
         passwordValues = generateValues(passwordLength, count, specialCharacters);
         console.log(passwordValues);
     }
     // concatenating all the equally divided passvalues
     var randomCharacters = passwordValueu + passwordValuel + passwordValuen + passwordValues;
     // console.log(randomCharacters);
+
+    // // to fill in the password to match the length selected by the user, calaculate how many letters are left
+    // passwordTemp = passwordValuel + passwordValuen + passwordValueu;
+    // //console.log(passwordTemp);
+    // //console.log((passwordLength - passwordTemp.length));
+
+    // // if the user opted for special characters then choose a few characters from specialcharacters string
+    // // this condition for if implies true hence skipping '=== true' part
+    // if (selectedspecialCharacter === true) {
+    //     for (let l = 0; l < (passwordLength - passwordTemp.length); l++) {
+    //         randomNumber = Math.floor(Math.random() * specialCharacters.length);
+    //         //   console.log(1, i, randomNumber, specialCharacter.join(",").substring(randomNumber, randomNumber +1));
+    //         passwordValues += specialCharacters.join("").substring(randomNumber, randomNumber + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
+    //     }
+    //     //console.log(passwordValues)
+    // }
+
+    // concatenating the specialcharacters to fill up until the length of the password is reached
+    //var randomCharacters = passwordTemp + passwordValues;
+    //console.log(randomCharacters);
 
     //Shuffle the randomCharacters into a randomPassword
     var randomPassword = randomCharacters.split("");
@@ -117,29 +168,21 @@ function generatePassword() {
         randomPassword[y] = tmp;
         // console.log(x, y, tmp)
     }
-
-    // //filling up the password length with characters user has chosen
-    // if (randomPassword.length < passLength) {
-    //     randomPassword = randomPassword + ()
-    // }
-
-
     //console.log(randomPassword);
-    alert(`Your ${passwordLength} character long password is ${randomPassword.join("")}`);
+    alert("Your password is " + randomPassword.join(""));
     //returns a randompassword  without the ",'s"
     return randomPassword.join("");
-
-
 }
 
 function generateValues(passLength, counter, inputString) {
-    let outputString = "";
+    var outputString = "";
     for (let i = 0; i < (Math.floor(passLength / counter)); i++) {
         randomNumber = Math.floor(Math.random() * inputString.length);
+        //   console.log(1, j, randomNumber, lowerCase.join(",").substring(randomNumber, randomNumber +1));
         outputString += inputString.join("").substring(randomNumber, randomNumber + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
     }
-    return outputString;
 }
+
 
 // Write password to the #password input
 function writePassword() {

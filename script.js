@@ -14,9 +14,12 @@ function generatePassword() {
     var passwordValues = "";
     var passwordValueu = "";
     var passwordLength = "";
-    var passwordTemp = "";
-    var randomNumber;
     let count = 0;
+    var diff = 0;
+    var appendl = "";
+    var appendn = "";
+    var appends = "";
+    var appendu = "";
 
     // initiatializing variables used subsequently within this function
     var selectedspecialCharacter = false;
@@ -64,11 +67,9 @@ function generatePassword() {
     if (selectednumbers) {
         count = count + 1;
     }
-
     if (selectedupperCase) {
         count = count + 1;
     }
-
     if (selectedlowerCase) {
         count = count + 1;
     }
@@ -80,31 +81,52 @@ function generatePassword() {
     // this condition for if implies true hence skipping '=== true' part
     if (selectedupperCase) {
         passwordValueu = generateValues(passwordLength, count, upperCase);
-        console.log(passwordValueu);
+        // console.log(passwordValueu);
     }
 
     // if the user opted for lower case characters then choose a few character from lowercase string
     // this condition for if implies true hence skipping '=== true' part
     if (selectedlowerCase) {
         passwordValuel = generateValues(passwordLength, count, lowerCase);
-        console.log(passwordValuel);
+        //  console.log(passwordValuel);
     }
 
     // if the user opted for numbers then choose a few numbers from numbers variable
     // this condition for if implies true but here's an example where an explicit '=== true' part is defined
     if (selectednumbers === true) {
         passwordValuen = generateValues(passwordLength, count, numbers)
-        console.log(passwordValuen);
+            //  console.log(passwordValuen);
     }
 
     // if the user opted for numbers then choose a few numbers from numbers variable
     if (selectedspecialCharacter) {
         passwordValues = generateValues(passwordLength, count, specialCharacters);
-        console.log(passwordValues);
+        // console.log(passwordValues);
     }
     // concatenating all the equally divided passvalues
     var randomCharacters = passwordValueu + passwordValuel + passwordValuen + passwordValues;
-    // console.log(randomCharacters);
+    console.log(randomCharacters, randomCharacters.length);
+
+    //filling up the password length with characters user has chosen
+    diff = (passwordLength - randomCharacters.length);
+    // console.log(diff);
+
+    if (diff > 0 && selectedupperCase === true) {
+        appendu = generateValues(diff, 1, upperCase);
+        //  console.log(appendu);
+    } else if (diff > 0 && selectedlowerCase === true) {
+        appendl = generateValues(diff, 1, lowerCase);
+        //    console.log(appendl);
+    } else if (diff > 0 && selectednumbers === true) {
+        appendn = generateValues(diff, 1, numbers);
+        //   console.log(appendn);
+    } else if (diff > 0 && selectednumbers === true) {
+        appends = generateValues(diff, 1, specialCharacters);
+        //  console.log(appends);
+    }
+    randomCharacters += appendu + appendl + appends + appendn;
+    console.log(randomCharacters, randomCharacters.length);
+
 
     //Shuffle the randomCharacters into a randomPassword
     var randomPassword = randomCharacters.split("");
@@ -118,10 +140,7 @@ function generatePassword() {
         // console.log(x, y, tmp)
     }
 
-    // //filling up the password length with characters user has chosen
-    // if (randomPassword.length < passLength) {
-    //     randomPassword = randomPassword + ()
-    // }
+
 
 
     //console.log(randomPassword);

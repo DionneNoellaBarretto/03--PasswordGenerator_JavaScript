@@ -28,7 +28,7 @@ function generatePassword() {
     var selectednumbers = false;
 
     //first prompt to determine password length
-    passwordLength = (prompt("What length password are you looking to generate? (Select a length between 8 and 128 characters)"))
+    passwordLength = (prompt("What length password are you looking to generate? (Select a length between 8 and 128 characters)"));
 
     // check for password length input
     if (passwordLength <= 7 || passwordLength >= 129) {
@@ -38,7 +38,7 @@ function generatePassword() {
 
     // confirms length of password 
     else {
-        alert(`Please proceed with selecting what comprises your ${passwordLength} character long password! Atleast one selection must be considered to create a randomly generated password.`)
+        alert(`Please proceed with selecting what comprises your ${passwordLength} character long password! Atleast one selection must be considered to create a randomly generated password.`);
     }
 
     //console.log(selectedupperCase, selectedlowerCase, selectednumbers, selectedspecialCharacter)
@@ -56,7 +56,7 @@ function generatePassword() {
         lowerCase: selectedlowerCase,
         numbers: selectednumbers,
         specialCharacters: selectedspecialCharacter
-    }
+    };
 
     // reiterates user's selection prior to displaying th randomly generated password
     if (selectedlowerCase === true || selectedupperCase === true || selectedspecialCharacter === true || selectednumbers === true) {
@@ -94,8 +94,8 @@ function generatePassword() {
     // if the user opted for numbers then choose a few numbers from numbers variable
     // this condition for if implies true but here's an example where an explicit '=== true' part is defined
     if (selectednumbers === true) {
-        passwordValuen = generateValues(passwordLength, count, numbers)
-            //  console.log(passwordValuen);
+        passwordValuen = generateValues(passwordLength, count, numbers);
+        //  console.log(passwordValuen);
     }
 
     // if the user opted for numbers then choose a few numbers from numbers variable
@@ -129,12 +129,12 @@ function generatePassword() {
 
     //Shuffle the randomCharacters into an actual randomPassword
     var randomPassword = randomCharacters.split("");
-    n = randomCharacters.length;
+    var n = randomCharacters.length;
     // console.log(n);
     for (var x = n - 1; x > 0; x--) {
         var y = Math.floor(Math.random() * (x + 1));
         var tmp = randomPassword[x];
-        randomPassword[x] = randomPassword[y]
+        randomPassword[x] = randomPassword[y];
         randomPassword[y] = tmp;
         // console.log(x, y, tmp)
     }
@@ -150,7 +150,7 @@ function generatePassword() {
 function generateValues(passLength, counter, inputString) {
     let outputString = "";
     for (let i = 0; i < (Math.floor(passLength / counter)); i++) {
-        randomNumber = Math.floor(Math.random() * inputString.length);
+        var randomNumber = Math.floor(Math.random() * inputString.length);
         outputString += inputString.join("").substring(randomNumber, randomNumber + 1); // adds the second character to first by appending it as opposed to replacing it and has converted everything to a string
     }
     return outputString;

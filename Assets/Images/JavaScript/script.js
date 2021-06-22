@@ -63,7 +63,7 @@ function generatePassword() {
         alert(`Your ${passwordLength} character long password will contain ${JSON.stringify(selectedOptions, null, 2)} `);
     }
 
-    //check for true's:
+    //check for true's using truthy format:
     if (selectednumbers) {
         count = count + 1;
     }
@@ -78,27 +78,28 @@ function generatePassword() {
     }
 
     // if the user opted for upper case characters then choose a few character from uppercase string
-    // this condition for if implies true hence skipping '=== true' part
+    // this condition for if implies true hence skipping '=== true' part : using truthy format
     if (selectedupperCase) {
         passwordValueu = generateValues(passwordLength, count, upperCase);
         // console.log(passwordValueu);
     }
 
     // if the user opted for lower case characters then choose a few character from lowercase string
-    // this condition for if implies true hence skipping '=== true' part
+    // this condition for if implies true hence skipping '=== true' part  : using truthy format
     if (selectedlowerCase) {
         passwordValuel = generateValues(passwordLength, count, lowerCase);
         //  console.log(passwordValuel);
     }
 
     // if the user opted for numbers then choose a few numbers from numbers variable
-    // this condition for if implies true but here's an example where an explicit '=== true' part is defined
+    // this condition for if implies true but here's an example where an explicit '=== true' part is defined : not using truthy format
     if (selectednumbers === true) {
         passwordValuen = generateValues(passwordLength, count, numbers);
         //  console.log(passwordValuen);
     }
 
     // if the user opted for numbers then choose a few numbers from numbers variable
+    // using truthy format
     if (selectedspecialCharacter) {
         passwordValues = generateValues(passwordLength, count, specialCharacters);
         // console.log(passwordValues);

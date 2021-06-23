@@ -38,10 +38,16 @@ function generatePassword() {
         //\n acts as an enter for new line to begin a sentence, in this case we have 2 enters or lines between the 2 string sentences
         alert("Please enter a valid password length by choosing a number between 8 and 128 for the character length of a randomly generated password. \n\n Click Okay and then restart the steps by clicking the red 'Generate' button !");
         return;
+
+        //checks for user entering anything other than a number ( like say an alphabet or negative number or symbol)
+    } else if (isNaN(passwordLength)) {
+        alert("Please proceed with selecting a valid number between 8 and 128 for the character length of a randomly generated password.\n \n Click Okay and then restart the steps by clicking the red 'Generate' button!");
+        return;
+        // console.log(isNaN(passwordLength));
     }
     // confirms length of password 
     else {
-        alert(`Please proceed with selecting what comprises your ${passwordLength} character long password! Atleast one selection must be 'Okayed' to create a randomly generated password.`);
+        alert(`Please proceed with selecting a number what comprises your ${passwordLength} character long password!Atleast one selection must be 'Okayed' to create a randomly generated password.`);
     }
 
     //console.log(selectedupperCase, selectedlowerCase, selectednumbers, selectedspecialCharacter)
@@ -64,7 +70,10 @@ function generatePassword() {
 
     // reiterates user's selection prior to displaying th randomly generated password
     if (selectedlowerCase === true || selectedupperCase === true || selectedspecialCharacter === true || selectednumbers === true) {
-        alert(`Your ${passwordLength} character long password will contain ${JSON.stringify(selectedOptions, null, 2)} `);
+        alert(`
+                    Your $ { passwordLength }
+                    character long password will contain $ { JSON.stringify(selectedOptions, null, 2) }
+                    `);
     }
 
     //check for true's using truthy condition format:
@@ -146,7 +155,10 @@ function generatePassword() {
     }
 
     //console.log(randomPassword);
-    alert(`Your ${passwordLength} character long password is ${randomPassword.join("")}`);
+    alert(`
+                    Your $ { passwordLength }
+                    character long password is $ { randomPassword.join("") }
+                    `);
     //returns a randompassword  without the ",'s"
     return randomPassword.join("");
 

@@ -111,6 +111,22 @@ input {
 }
 
 #password {
+    /* If the following 2 are commented out console throws:  It looks like you're using the development build of the Firebase JS SDK.
+When deploying Firebase apps to production, it is advisable to only import
+the individual SDK components you intend to use. For the module builds, these are available in the following manner
+(replace <PACKAGE> with the name of a component - i.e. auth, database, etc):
+CommonJS Modules:
+const firebase = require('firebase/app');
+require('firebase/<PACKAGE>');
+ES Modules:
+import firebase from 'firebase/app';
+import 'firebase/<PACKAGE>';
+Typescript:
+import * as firebase from 'firebase/app';
+import 'firebase/<PACKAGE>';
+&
+Error handling response: TypeError: Cannot read property 'loggedOut' of undefined
+    at chrome-extension://kcnhkahnjcbndmmehfkdnkjomaanaooo/contentscript.js:167:137 */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -131,6 +147,9 @@ input {
     overflow: hidden;
 }
 
+
+/* MEdia Queries for smaller screens - responsive ui*/
+
 @media (max-width: 690px) {
     .btn {
         font-size: 1rem;
@@ -142,13 +161,11 @@ input {
     }
 }
 
-
-/* included the password font-size for smaller screens*/
-
 @media (max-width: 500px) {
     .btn {
         font-size: 0.8rem;
     }
+    /* included the password font-size for smaller screens*/
     #password {
         font-size: 0.8rem;
     }

@@ -1,4 +1,5 @@
 // Assignment Code
+//#generate is an id in the html for the button
 var generateBtn = document.querySelector("#generate");
 
 // Array of options for computer to pick from
@@ -14,6 +15,8 @@ function generatePassword() {
     var passwordValues = "";
     var passwordValueu = "";
     var passwordLength = "";
+
+    //initializing all variables to be 0/empty to avoid running into undefined / NaN's
     let count = 0;
     var diff = 0;
     var appendl = "";
@@ -21,27 +24,28 @@ function generatePassword() {
     var appends = "";
     var appendu = "";
 
-    // initiatializing variables used subsequently within this function
+    // initiatializing variables used subsequently within this function to confirm the selections by the user and check if the user ahas selected atleast 1 prompt for the password generator function to work
     var selectedspecialCharacter = false;
     var selectedupperCase = false;
     var selectedlowerCase = false;
     var selectednumbers = false;
 
+    //I could have used while for the first prompt as well, however i wanted to break our from the alert screen since this is just the first prompt 
     //first prompt to determine password length
     passwordLength = (prompt("What length password are you looking to generate? (Select a length between 8 and 128 characters)"));
-
     // check for password length input
     if (passwordLength <= 7 || passwordLength >= 129) {
-        alert("Please enter a valid password length by choosing a number between 8 and 128 to determine character length of the randomly generated password");
+        //\n acts as an enter for new line to begin a sentence, in this case we have 2 enters or lines between the 2 string sentences
+        alert("Please enter a valid password length by choosing a number between 8 and 128 for the character length of a randomly generated password. \n\n Click Okay and then restart the steps by clicking the red 'Generate' button !");
         return;
     }
-
     // confirms length of password 
     else {
-        alert(`Please proceed with selecting what comprises your ${passwordLength} character long password! Atleast one selection must be considered to create a randomly generated password.`);
+        alert(`Please proceed with selecting what comprises your ${passwordLength} character long password! Atleast one selection must be 'Okayed' to create a randomly generated password.`);
     }
 
     //console.log(selectedupperCase, selectedlowerCase, selectednumbers, selectedspecialCharacter)
+
     //Validating for atleast 1 prompt being okay'ed
     while (selectedlowerCase === false && selectedupperCase === false && selectedspecialCharacter === false && selectednumbers === false) {
         selectedupperCase = confirm("Click OK if you would like to include upperCase characters (A, B,C, ....) in your randomly generated password");
@@ -50,7 +54,7 @@ function generatePassword() {
         selectedspecialCharacter = confirm("Click OK if you would like to include special characters (@, !, ~, ...) in your randomly generated password");
     }
 
-    //storing all the selected values in a variable for subsequent use
+    //storing all the selected prompt values in an independent variable for subsequent use
     var selectedOptions = {
         upperCase: selectedupperCase,
         lowerCase: selectedlowerCase,
@@ -63,8 +67,9 @@ function generatePassword() {
         alert(`Your ${passwordLength} character long password will contain ${JSON.stringify(selectedOptions, null, 2)} `);
     }
 
-    //check for true's using truthy format:
+    //check for true's using truthy condition format:
     if (selectednumbers) {
+        //could be written as count +=; or count ++ as well 
         count = count + 1;
     }
     if (selectedupperCase) {
@@ -137,7 +142,7 @@ function generatePassword() {
         var tmp = randomPassword[x];
         randomPassword[x] = randomPassword[y];
         randomPassword[y] = tmp;
-        // console.log(x, y, tmp)
+        //console.log(x, y, tmp);
     }
 
     //console.log(randomPassword);
@@ -159,15 +164,17 @@ function generateValues(passLength, counter, inputString) {
 
 
 // Write password to the #password input
+//this is a function referenced by the listener which inturn calls the generatePassword function which in this solution is doing the heavy lifting
 function writePassword() {
 
     var password = generatePassword();
-    // var password = 0; 
-
+    // var password = 0; (If this is set then the password text area is replaced with a 0, instead within the function generate password i've included the initialization of variables to avoid any undefined's)
+    //#password is an id in the html that links to the text area section in the body
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
 }
 
 // Add event listener to generate button
+// creating a listener on a click action to call function writePassword
 generateBtn.addEventListener("click", writePassword);

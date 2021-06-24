@@ -47,7 +47,7 @@ function generatePassword() {
     }
     // confirms length of password 
     else {
-        alert(`Please proceed with selecting a number what comprises your ${passwordLength} character long password!Atleast one selection must be 'Okayed' to create a randomly generated password.`);
+        alert(`Please proceed with selecting from options for what comprises your ${passwordLength} character long password! \n \n Atleast one selection must be 'Okayed' to create a randomly generated password.`);
     }
 
     //console.log(selectedupperCase, selectedlowerCase, selectednumbers, selectedspecialCharacter)

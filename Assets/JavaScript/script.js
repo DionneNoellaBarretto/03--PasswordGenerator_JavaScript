@@ -70,10 +70,7 @@ function generatePassword() {
 
     // reiterates user's selection prior to displaying th randomly generated password
     if (selectedlowerCase === true || selectedupperCase === true || selectedspecialCharacter === true || selectednumbers === true) {
-        alert(`
-                    Your $ { passwordLength }
-                    character long password will contain $ { JSON.stringify(selectedOptions, null, 2) }
-                    `);
+        alert(`Your ${passwordLength} character long password will contain ${JSON.stringify(selectedOptions, null, 2)}`);
     }
 
     //check for true's using truthy condition format:
@@ -155,13 +152,9 @@ function generatePassword() {
     }
 
     //console.log(randomPassword);
-    alert(`
-                    Your $ { passwordLength }
-                    character long password is $ { randomPassword.join("") }
-                    `);
+    alert(`Your ${passwordLength} character long password is ${randomPassword.join("")}`);
     //returns a randompassword  without the ",'s"
     return randomPassword.join("");
-
 }
 
 //this function is called by generatePassword to churn through the 4 choices chosen by the user randomNumber of times

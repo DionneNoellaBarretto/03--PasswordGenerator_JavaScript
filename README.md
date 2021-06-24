@@ -36,12 +36,12 @@ Another Work in Progress Solution (Practice Attempt): 🗂️ [Github Repository
 ## Mock-Up
 
 The following image shows the web application's appearance and functionality:
-<img src="./Assets\Images\03-javascript-homework-demo.png">
+<img src="./Assets/Images/03-javascript-homework-demo.png">
 
 Following are Desktop, Tablet and Mobile Views: 
-<img src="./Assets\Images\DesktopView.png">
-<img src="./Assets\Images\TabletView.png">
-<img src="./Assets\Images\MobileView.png">
+<img src="./Assets/Images/DesktopView.png">
+<img src="./Assets/Images/TabletView.png">
+<img src="./Assets/Images/MobileView.png">
 
 
 ## Grading Requirements
@@ -53,7 +53,7 @@ Satisfies all of the preceding acceptance criteria plus the following:
 ```
 ✅The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
 ```
-<img src="./Assets\Images\No Issues, Errors.png">
+<img src="./Assets/Images/No Issues,Errors.png">
 
 ### Deployment: 32%
 ```
